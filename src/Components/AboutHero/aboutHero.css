@@ -1,0 +1,22 @@
+.aboutHero {
+  padding-top: 88px;
+  padding-bottom: 89px;
+}
+
+.aboutHero__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0px 48px;
+  gap: 40px;
+}
+
+.aboutHero__title {
+  max-width: 704px;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 140%;
+  color: var(--dark-primary);
+}

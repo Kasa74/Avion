@@ -1,0 +1,51 @@
+.aboutReverse__content {
+  display: flex;
+}
+
+.aboutReverse__img {
+  display: block;
+  width: 50%;
+  object-fit: cover;
+}
+
+.aboutReverse__info {
+  padding: 72px 0px 54px 84px;
+  padding-right: max(
+    var(--container-offset),
+    calc((100% - var(--container-width)) / 2)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--light-grey);
+  width: 50%;
+}
+
+.aboutReverse__title {
+  margin-bottom: 25px;
+  max-width: 500px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: var(--dark-primary);
+}
+
+.aboutReverse__description {
+  max-width: 536px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #505977;
+}
+
+.aboutReverse__description:not(:last-of-type) {
+  margin-bottom: 30px;
+}
+
+.aboutReverse__btn {
+  margin-top: auto;
+  background: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--dark-primary);
+}

@@ -1,0 +1,105 @@
+@import "../ProductsBlock/productsBlock.css";
+
+.catalog {
+  padding: 36px 0px;
+}
+
+.catalog__column {
+  grid-column: 3 span;
+}
+
+.catalog__wrapper {
+  grid-column: 9 span;
+}
+
+.catalog__products {
+  --column-gap: 20px;
+  --elems: 3;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--column-gap);
+  row-gap: 36px;
+}
+
+.catalog__item {
+  width: calc(
+    (100% - ((var(--elems) - 1) * var(--column-gap))) / (var(--elems))
+  );
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 48px;
+}
+
+.filters__item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.filters__content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 12px;
+}
+
+.filters__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: var(--dark-primary);
+}
+
+/* custom-checkbox */
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.custom-checkbox__input {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-checkbox__icon {
+  position: relative;
+  flex-shrink: 0;
+  border: 1px solid #dcdcdc;
+  border-radius: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.custom-checkbox__icon::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  background-image: url("../../img/checkmark_checkbox.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.custom-checkbox__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--dark-primary);
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__icon::after {
+  opacity: 1;
+}

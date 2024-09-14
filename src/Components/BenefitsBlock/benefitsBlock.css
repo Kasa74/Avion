@@ -1,0 +1,49 @@
+.benefits {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.benefits__list {
+  column-gap: 80px !important;
+}
+
+.benefits__item {
+  grid-column: 3 span;
+
+  padding-top: 40px;
+  background-position: left top;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+.benefits__item--next {
+  background-image: url("../../img/delivery_icon.svg");
+}
+
+.benefits__item--made {
+  background-image: url("../../img/checkmark_icon.svg");
+}
+
+.benefits__item--prices {
+  background-image: url("../../img/card_icon.svg");
+}
+
+.benefits__item--packaging {
+  background-image: url("../../img/sprout_icon.svg");
+}
+
+.benefits__subtitle {
+  margin-bottom: 8px;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: var(--dark-primary);
+}
+
+.benefits__description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--dark-primary);
+}

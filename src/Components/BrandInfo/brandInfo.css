@@ -1,0 +1,43 @@
+.brandInfo {
+  padding: 60px 0px;
+}
+
+.brandInfo__content {
+  display: flex;
+  gap: 16px;
+}
+
+.brandInfo__text {
+  padding: 64px 20px 54px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--dark-primary);
+}
+
+.brandInfo__title {
+  margin-bottom: 12px;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 32px;
+  color: var(--white);
+}
+
+.brandInfo__description {
+  max-width: 495px;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: auto;
+}
+
+.brandInfo__img__block,
+.brandInfo__text {
+  width: calc((100% - 16px) / 2);
+}
+
+.brandInfo__img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}

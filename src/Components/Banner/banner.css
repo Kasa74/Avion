@@ -1,0 +1,21 @@
+.banner {
+  background-image: url("../../img/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner__content {
+  padding-bottom: 36px;
+  min-height: 209px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 140%;
+  color: var(--white);
+}
