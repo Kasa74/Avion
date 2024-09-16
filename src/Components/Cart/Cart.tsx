@@ -83,7 +83,7 @@ export const Cart = () => {
           <div className="cart__bottom">
             <div className="cart__bottom-info">
               <p className="cart__bottom-text">
-                Taxes and shipping are calculated at&nbsp;checkout{" "}
+                Taxes and shipping are calculated at&nbsp;checkout
               </p>
               <div className="cart__subtotal">
                 Subtotal <span className="cart__subtotal-price">£210</span>

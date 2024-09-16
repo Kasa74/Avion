@@ -3,15 +3,21 @@ import "./catalog.css";
 import product_2 from "../../img/product-2.png";
 import test1 from "../../img/test1.jpg";
 import { useEffect, useState } from "react";
-import { getAllItems } from "../../requests";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { userSlice } from "../../store/reducers/UserSlice";
 
 export const Catalog = () => {
   const [choosenFilters, setChoosenFilters] = useState([]);
+  const user = userSlice.actions.usersFetchingSuccess({
+    id: 1,
+    email: "dfasd",
+    firstname: "fa",
+    lastname: "fa",
+  });
+  console.log(user);
+  const dispatch = useAppDispatch();
 
-  const dispatch = useDispatch();
-  const items = useSelector((state: any) => state.items);
-  useEffect(() => {});
+  // console.log(items);
   // константа со значением категорий фильтров и самих фильтров в массив это записывать и при обновлении стейта посылать запрос на бэк с обновленным массивом
 
   return (
@@ -152,7 +158,7 @@ export const Catalog = () => {
             </div>
           </div>
           <div className="catalog__wrapper">
-            {items.length > 0 ? (
+            {/* {items.length > 0 ? (
               <>
                 <ul className="catalog__products">
                   <li className="catalog__item">
@@ -272,7 +278,7 @@ export const Catalog = () => {
               </>
             ) : (
               <div>Предметы не загрузились</div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
