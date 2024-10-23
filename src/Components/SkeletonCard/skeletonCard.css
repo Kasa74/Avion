@@ -1,0 +1,126 @@
+.skeletonCard {
+    display: flex;
+    width: 100%;
+    gap: 67px;
+}
+
+.skeletonCard__img {
+    min-width: 665px;
+    min-height: 665px;
+}
+
+.skeletonCard__text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 31px;
+    padding-bottom: 30px;
+    padding-right: 88px;
+}
+
+.skeletonCard__text {
+    padding-top: 31px;
+    padding-bottom: 30px;
+    padding-right: 88px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .skeletonCard__top {
+    padding-bottom: 28px;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-grey);
+    margin-bottom: 24px;
+  }
+  
+  .skeletonCard__title {
+    min-height: 44px;
+    flex: 1;
+  }
+  
+  .skeletonCard__price {
+    min-height: 33px;
+    flex: 1;
+  }
+  
+  .skeletonCard__item:not(:last-of-type) {
+    margin-bottom: 36px;
+  }
+  
+  .skeletonCard__item:last-of-type {
+    margin-bottom: 48px;
+  }
+  
+  .skeletonCard__subtitle {
+    margin-bottom: 14px;
+    font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--dark-primary);
+  }
+  
+  .skeletonCard__description {
+    padding-right: 20px;
+    min-height: 100px;
+    flex: 1;
+  }
+  
+  .skeletonCard__chars {
+    display: flex;
+    min-height: 58px;
+    gap: 98px;
+    flex: 1;
+  }
+  
+  .skeletonCard__chars-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .skeletonCard__chars-item:not(:last-of-type):after {
+    content: "";
+    position: absolute;
+    right: -50px;
+    width: 1px;
+    height: calc(100% - 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--border-grey);;
+  }
+  
+  .stepper {
+    min-width: 122px;
+    min-height: 48px;
+  }
+  
+  .skeletonCard__buttons {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .btn1 {
+    min-width: 143px;
+    min-height: 56px;
+  }
+  .btn2 {
+    min-width: 178px;
+    min-height: 56px;
+  }
+
+.animated {
+    background: linear-gradient(-90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 400% 400%;
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -135% 0%;
+    }
+}

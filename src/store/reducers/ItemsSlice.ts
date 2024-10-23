@@ -5,6 +5,11 @@ export interface IItems {
   name: string;
   price: number;
   category: string;
+  height: number;
+  width: number;
+  depth: number;
+  designer: string;
+  description: string;
   img: string;
 }
 

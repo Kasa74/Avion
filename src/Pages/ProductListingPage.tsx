@@ -3,7 +3,7 @@ import { Footer } from "../Components/Footer/Footer";
 import { Header } from "../Components/Header/Header";
 import { ProductInfo } from "../Components/ProductInfo/ProductInfo";
 
-export const ProductLisitngPage = () => {
+export const ProductListingPage = () => {
   return (
     <>
       <Header />

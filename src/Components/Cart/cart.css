@@ -169,3 +169,13 @@ color: var(--dark-primary);
 .cart__stepper__input::-webkit-inner-spin-button {
       -webkit-appearance: none;
 }
+
+.cart__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 140%; 
+    color: var(--dark-primary);
+}

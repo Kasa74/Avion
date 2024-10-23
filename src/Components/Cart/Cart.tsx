@@ -1,25 +1,35 @@
 import "./cart.css";
 
-import product_img from "../../img/product_img_1.jpg";
 import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { cartSlice } from "../../store/reducers/CartSlice";
 
 export const Cart = () => {
-  const [quantityAmmount, setQuantityAmmount] = useState(1);
+  const dispatch = useAppDispatch();
+  const { cartItems, isLoading, error } = useAppSelector(
+    (state) => state.cartReducer
+  );
 
-  const quantityMinus = () => {
-    if (quantityAmmount > 0) {
-      setQuantityAmmount(quantityAmmount - 1);
-    } else {
-      alert("Заказать меньше нельзя");
-    }
+  const [localCounts, setLocalCounts] = useState(
+    cartItems.map((item) => item.count)
+  );
+
+  const inputChangeHandler = (index: number, value: number) => {
+    const newLocalCounts = [...localCounts];
+    newLocalCounts[index] = Number(value);
+    setLocalCounts(newLocalCounts);
   };
 
-  const quantityPlus = () => {
-    if (quantityAmmount < 999) {
-      setQuantityAmmount(quantityAmmount + 1);
-    } else {
-      alert("Выбрано максимальное количество единиц товара");
-    }
+  const plusButtonHandler = (index: number) => {
+    const newLocalCounts = [...localCounts];
+    newLocalCounts[index] += 1;
+    setLocalCounts(newLocalCounts);
+  };
+
+  const minusButtonHandler = (index: number) => {
+    const newLocalCounts = [...localCounts];
+    newLocalCounts[index] -= 1;
+    setLocalCounts(newLocalCounts);
   };
   return (
     <section className="cart">
@@ -32,52 +42,84 @@ export const Cart = () => {
               <div className="cart__col cart__col--quantity">Quantity</div>
               <div className="cart__col cart__col--total">Total</div>
             </div>
+            {cartItems.length === 0 && (
+              <div className="cart__empty">Cart is empty</div>
+            )}
             <div className="cart__row cart-grid">
-              <div className="cart__col cart__col--img">
-                <img
-                  src={product_img}
-                  alt=""
-                  width="109px"
-                  height="134px"
-                  className="cart__img"
-                />
-              </div>
-              <div className="cart__col cart__col--info">
-                <div className="cart__info">
-                  <h2 className="cart__title">Graystone vase</h2>
-                  <p className="cart__description">
-                    A timeless ceramic vase with a tri color grey glaze.
-                  </p>
-                  <p className="cart__price">£85</p>
-                </div>
-              </div>
-              <div className="cart__col cart__col--quantity">
-                <div className="cart__stepper">
-                  <button
-                    className="cart__stepper__btn cart__stepper__btn-minus"
-                    aria-label="decrease quantity"
-                    onClick={() => quantityMinus()}
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    value={quantityAmmount}
-                    onChange={(e) => setQuantityAmmount(Number(e.target.value))}
-                    className="cart__stepper__input"
-                  />
-                  <button
-                    className="cart__stepper__btn cart__stepper__btn-plus"
-                    aria-label="increase quantity"
-                    onClick={() => quantityPlus()}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <div className="cart__col cart__col--total">
-                <p className="cart__total">$85</p>
-              </div>
+              {Array.isArray(cartItems) &&
+                cartItems.map((cartItem, index) => {
+                  return (
+                    <>
+                      <div className="cart__col cart__col--img">
+                        <img
+                          src={cartItem.img}
+                          alt=""
+                          width="109px"
+                          height="134px"
+                          className="cart__img"
+                        />
+                      </div>
+                      <div className="cart__col cart__col--info">
+                        <div className="cart__info">
+                          <h2 className="cart__title">{cartItem.name}</h2>
+                          <p className="cart__description">
+                            {cartItem.description}
+                          </p>
+                          <p className="cart__price">£{cartItem.price}</p>
+                        </div>
+                      </div>
+                      <div className="cart__col cart__col--quantity">
+                        <div className="cart__stepper">
+                          <button
+                            className="cart__stepper__btn cart__stepper__btn-minus"
+                            aria-label="decrease quantity"
+                            onClick={() => {
+                              minusButtonHandler(index);
+                              dispatch(
+                                cartSlice.actions.cartItemMinus(cartItem)
+                              );
+                            }}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            value={localCounts[index]}
+                            onChange={(e) =>
+                              inputChangeHandler(index, Number(e.target.value))
+                            }
+                            onBlur={() =>
+                              dispatch(
+                                cartSlice.actions.setCartItemCount({
+                                  ...cartItem,
+                                  count: localCounts[index],
+                                })
+                              )
+                            }
+                            className="cart__stepper__input"
+                          />
+                          <button
+                            className="cart__stepper__btn cart__stepper__btn-plus"
+                            aria-label="increase quantity"
+                            onClick={() => {
+                              plusButtonHandler(index);
+                              dispatch(
+                                cartSlice.actions.cartItemPlus(cartItem)
+                              );
+                            }}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="cart__col cart__col--total">
+                        <p className="cart__total">
+                          ${cartItem.price * cartItem.count}
+                        </p>
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </div>
           <div className="cart__bottom">
@@ -86,7 +128,14 @@ export const Cart = () => {
                 Taxes and shipping are calculated at&nbsp;checkout
               </p>
               <div className="cart__subtotal">
-                Subtotal <span className="cart__subtotal-price">£210</span>
+                Subtotal{" "}
+                <span className="cart__subtotal-price">
+                  £
+                  {cartItems.reduce(
+                    (acc, curValue) => acc + curValue.count * curValue.price,
+                    0
+                  )}
+                </span>
               </div>
             </div>
 

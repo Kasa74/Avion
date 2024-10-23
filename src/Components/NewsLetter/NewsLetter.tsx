@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "./newsLetter.css";
 
 export const NewsLetter = () => {
+  const [email, setEmail] = useState("");
   return (
     <section className="newsletter">
       <div className="container">
@@ -16,11 +18,22 @@ export const NewsLetter = () => {
             <input
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="form__input"
               placeholder="your@email.com"
             />
-            <button className="btn btn-theme_dark form__btn">Sign Up</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                console.log(email);
+                setEmail("");
+              }}
+              className="btn btn-theme_dark form__btn"
+            >
+              Sign Up
+            </button>
           </form>
         </div>
       </div>

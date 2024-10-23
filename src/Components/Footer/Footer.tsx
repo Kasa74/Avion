@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
+  const [email, setEmail] = useState("");
   return (
     <footer className="footer">
       <div className="container">
@@ -9,29 +12,29 @@ export const Footer = () => {
             <h2 className="footer__title">Menu</h2>
             <ul className="footer__list">
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   New arrivals
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Best sellers
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Recently viewed
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Popular this week
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   All products
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -39,34 +42,29 @@ export const Footer = () => {
             <h2 className="footer__title">Categories</h2>
             <ul className="footer__list">
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Crockery
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Furniture
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Homeware
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Plant pots
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/catalog"} className="footer__link">
                   Chairs
-                </a>
-              </li>
-              <li className="footer__item">
-                <a href="" className="footer__link">
-                  Crockery
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -74,29 +72,29 @@ export const Footer = () => {
             <h2 className="footer__title">Our Company</h2>
             <ul className="footer__list">
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/about"} className="footer__link">
                   About us
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"#"} className="footer__link">
                   Vacancies
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"/contact"} className="footer__link">
                   Contact us
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"#"} className="footer__link">
                   Privacy
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a href="" className="footer__link">
+                <Link to={"#"} className="footer__link">
                   Returns policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -106,11 +104,22 @@ export const Footer = () => {
               <input
                 type="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 className="form__input"
                 placeholder="your@email.com"
               />
-              <button className="btn btn-theme_light form__btn">Sign Up</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log(email);
+                  setEmail("");
+                }}
+                className="btn btn-theme_light form__btn"
+              >
+                Sign Up
+              </button>
             </form>
           </div>
         </div>
@@ -118,7 +127,7 @@ export const Footer = () => {
           <div className="footer__copyright">Copyright 2022 Avion LTD</div>
           <ul className="footer__socials">
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="18"
                   height="18"
@@ -131,10 +140,10 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="18"
                   height="18"
@@ -147,10 +156,10 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="18"
                   height="18"
@@ -171,10 +180,10 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="20"
                   height="20"
@@ -187,10 +196,10 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="18"
                   height="14"
@@ -203,10 +212,10 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="socials__item">
-              <a href="#" className="socials__link">
+              <Link to={"/"} className="socials__link">
                 <svg
                   width="22"
                   height="22"
@@ -219,7 +228,7 @@ export const Footer = () => {
                     fill="white"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

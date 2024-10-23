@@ -69,6 +69,12 @@ export const Header = () => {
                   <path d="M7 0C5.61553 0 4.26216 0.410543 3.11101 1.17971C1.95987 1.94888 1.06266 3.04213 0.532846 4.32122C0.00303298 5.6003 -0.13559 7.00776 0.134506 8.36563C0.404603 9.7235 1.07129 10.9708 2.05026 11.9497C3.02922 12.9287 4.2765 13.5954 5.63437 13.8655C6.99224 14.1356 8.3997 13.997 9.67879 13.4672C10.9579 12.9373 12.0511 12.0401 12.8203 10.889C13.5895 9.73785 14 8.38447 14 7C13.9979 5.14413 13.2597 3.36486 11.9474 2.05256C10.6351 0.74026 8.85588 0.00209095 7 0ZM4 12.1882V11.5C4.00044 11.1023 4.15862 10.721 4.43983 10.4398C4.72104 10.1586 5.10231 10.0004 5.5 10H8.5C8.89769 10.0004 9.27897 10.1586 9.56018 10.4398C9.84139 10.721 9.99957 11.1023 10 11.5V12.1882C9.08959 12.7199 8.05426 13 7 13C5.94574 13 4.91042 12.7199 4 12.1882ZM10.9963 11.4629C10.9863 10.807 10.7191 10.1813 10.2521 9.72061C9.7852 9.25991 9.15595 9.00112 8.5 9H5.5C4.84405 9.00112 4.2148 9.25991 3.74786 9.72061C3.28093 10.1813 3.01369 10.807 3.00375 11.4629C2.09703 10.6533 1.45762 9.58734 1.17017 8.40623C0.882723 7.22513 0.960803 5.98457 1.39407 4.84883C1.82734 3.71309 2.59536 2.73573 3.59644 2.04618C4.59751 1.35663 5.78442 0.987413 7 0.987413C8.21558 0.987413 9.40249 1.35663 10.4036 2.04618C11.4046 2.73573 12.1727 3.71309 12.6059 4.84883C13.0392 5.98457 13.1173 7.22513 12.8298 8.40623C12.5424 9.58734 11.903 10.6533 10.9963 11.4629Z" />
                 </svg>
               </Link>
+              <button className="burger">
+                <span className="burger__line"></span>
+                <span className="burger__line"></span>
+                <span className="burger__line"></span>
+                <span className="burger__line"></span>
+              </button>
             </div>
           </div>
         </div>
@@ -78,28 +84,44 @@ export const Header = () => {
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
-                <a className="nav__link">All products</a>
+                <Link to={"/catalog"} className="nav__link">
+                  All products
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Plant pots</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Plant pots
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Ceramics</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Ceramics
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Tables</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Tables
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Chairs</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Chairs
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Crockery</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Crockery
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Tableware</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Tableware
+                </Link>
               </li>
               <li className="nav__item">
-                <a className="nav__link">Cutlery</a>
+                <Link to={"/catalog"} className="nav__link">
+                  Cutlery
+                </Link>
               </li>
             </ul>
           </nav>

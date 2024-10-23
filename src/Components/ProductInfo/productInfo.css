@@ -10,6 +10,12 @@
 
 .productInfo__img {
   min-width: 607px;
+min-height: 661px;
+}
+
+.productInfo__img img{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

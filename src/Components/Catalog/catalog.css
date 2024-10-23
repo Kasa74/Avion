@@ -69,6 +69,7 @@
 .custom-checkbox__input {
   position: absolute;
   opacity: 0;
+  
 }
 
 .custom-checkbox__icon {
@@ -102,4 +103,21 @@
 
 .custom-checkbox__input:checked + .custom-checkbox__icon::after {
   opacity: 1;
+}
+
+.product {
+  height: 462px;
+}
+
+.product__img {
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+}
+
+
+.product__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
