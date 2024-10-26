@@ -1,8 +1,7 @@
-import "./cart.css";
-
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { cartSlice } from "../../store/reducers/CartSlice";
+import "./cart.css";
 
 export const Cart = () => {
   const dispatch = useAppDispatch();
@@ -33,8 +32,8 @@ export const Cart = () => {
   };
   return (
     <section className="cart">
-      <h1 className="visually-hidden">Cart</h1>
       <div className="container">
+        <h1 className="cart-header__title">Your shopping cart</h1>
         <div className="cart__content">
           <div className="cart__table">
             <div className="cart__row cart__row--heading cart-grid">
@@ -45,11 +44,12 @@ export const Cart = () => {
             {cartItems.length === 0 && (
               <div className="cart__empty">Cart is empty</div>
             )}
-            <div className="cart__row cart-grid">
-              {Array.isArray(cartItems) &&
-                cartItems.map((cartItem, index) => {
-                  return (
-                    <>
+
+            {Array.isArray(cartItems) &&
+              cartItems.map((cartItem, index) => {
+                return (
+                  <>
+                    <div className="cart__row cart-grid">
                       <div className="cart__col cart__col--img">
                         <img
                           src={cartItem.img}
@@ -114,13 +114,13 @@ export const Cart = () => {
                       </div>
                       <div className="cart__col cart__col--total">
                         <p className="cart__total">
-                          ${cartItem.price * cartItem.count}
+                          £{cartItem.price * cartItem.count}
                         </p>
                       </div>
-                    </>
-                  );
-                })}
-            </div>
+                    </div>
+                  </>
+                );
+              })}
           </div>
           <div className="cart__bottom">
             <div className="cart__bottom-info">

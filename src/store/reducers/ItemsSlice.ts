@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface IItems {
+export interface IItem {
   id: number;
   name: string;
   price: number;
@@ -14,7 +14,7 @@ export interface IItems {
 }
 
 interface ItemsState {
-  items: IItems[];
+  items: IItem[];
   isLoading: boolean;
   error: string;
 }
@@ -31,7 +31,7 @@ export const itemsSlice = createSlice({
     itemsFetching(state) {
       state.isLoading = true;
     },
-    itemsFetchingSuccess(state, action: PayloadAction<IItems[]>) {
+    itemsFetchingSuccess(state, action: PayloadAction<IItem[]>) {
       state.isLoading = false;
       state.error = "";
       state.items = action.payload;

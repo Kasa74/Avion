@@ -20,3 +20,14 @@
   line-height: 140%;
   color: var(--dark-primary);
 }
+
+@media (max-width: 768px) {
+  .aboutHero__content {
+    padding: 0;
+    gap: 40px;
+  }
+
+  .aboutHero__content .btn {
+    width: 100%;
+  }
+}

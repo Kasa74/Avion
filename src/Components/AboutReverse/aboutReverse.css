@@ -37,7 +37,7 @@
   color: #505977;
 }
 
-.aboutReverse__description:not(:last-of-type) {
+.aboutReverse__description {
   margin-bottom: 30px;
 }
 
@@ -48,4 +48,27 @@
   font-size: 16px;
   line-height: 150%;
   color: var(--dark-primary);
+}
+
+@media (max-width: 768px) {
+  .aboutReverse__content {
+    flex-direction: column;
+  }
+
+  .aboutReverse__img {
+    width: 100%;
+  }
+
+  .aboutReverse__info {
+    width: 100%;
+    padding: 48px 24px 62px 24px;
+  }
+
+  .aboutReverse__info .btn {
+    width: 100%;
+  }
+
+  .aboutReverse__title {
+    max-width: 274px;
+  }
 }

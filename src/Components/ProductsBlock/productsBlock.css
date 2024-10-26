@@ -41,12 +41,17 @@
 }
 
 .product__title {
-  padding-bottom: 8px;
-  font-family: var(--second-family);
   font-weight: 400;
   font-size: 20px;
   line-height: 140%;
   color: var(--dark-primary);
+  display: -webkit-box;
+  max-width: 160px;
+  font-size: 20px;
+  -webkit-line-clamp: 1; /* количество строк */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product__price {
@@ -54,4 +59,24 @@
   font-size: 18px;
   line-height: 150%;
   color: var(--dark-primary);
+}
+
+@media (max-width: 1024px) {
+  .products__item {
+    grid-column: 6 span;
+  }
+}
+
+@media (max-width: 767px) {
+  .product {
+    height: 250px;
+  }
+
+  .products__btn {
+    width: 100%;
+  }
+
+  .product__title {
+    padding-bottom: 0px;
+  }
 }

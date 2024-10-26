@@ -1,10 +1,4 @@
 import "./productsBlock.css";
-
-// img
-import product_1 from "../../img/product-1.png";
-import product_2 from "../../img/product-2.png";
-import product_3 from "../../img/product-3.png";
-import product_4 from "../../img/product-4.png";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { useEffect } from "react";
@@ -18,7 +12,7 @@ export const ProductsBlock = () => {
 
   useEffect(() => {
     if (items.length < 4) {
-      dispatch(fetchItems());
+      dispatch(fetchItems(4));
     }
   }, [dispatch, items]);
 
@@ -44,7 +38,7 @@ export const ProductsBlock = () => {
           <div className="error__block">
             <div className="error__text">{error}</div>
             <div
-              onClick={() => dispatch(fetchItems())}
+              onClick={() => dispatch(fetchItems(4))}
               className="btn btn-theme_dark error__btn"
             >
               Try again

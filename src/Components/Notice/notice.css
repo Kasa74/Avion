@@ -24,3 +24,15 @@
   right: 22px;
   transform: translateY(-50%);
 }
+
+@media (max-width: 767px) {
+  .notice {
+    justify-content: flex-start;
+  }
+  .notice__text {
+    max-width: 302px;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--white);
+  }
+}

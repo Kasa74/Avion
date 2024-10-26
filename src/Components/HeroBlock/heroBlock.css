@@ -42,3 +42,31 @@
   line-height: 150%;
   color: var(--white);
 }
+
+@media (max-width: 1024px) {
+  .hero__content {
+    flex-direction: column;
+  }
+  .hero__image {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero .container {
+    padding: 0;
+  }
+
+  .hero__text {
+    padding: 40px 24px 24px 24px;
+  }
+
+  .hero__description {
+    margin-bottom: 32px;
+  }
+
+  .hero__link {
+    order: 3;
+    width: 100%;
+  }
+}

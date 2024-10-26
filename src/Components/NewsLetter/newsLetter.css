@@ -33,3 +33,35 @@
   text-align: center;
   color: var(--dark-primary);
 }
+
+@media (max-width: 767px) {
+  .newsletter__content {
+    padding: 0;
+    background: none;
+    align-items: flex-start;
+  }
+
+  .newsletter__title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: var(--dark-primary);
+  }
+
+  .newsletter__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--dark-primary);
+    text-align: left;
+  }
+
+  .newsletter__form input {
+    background-color: var(--light-grey);
+    width: 224px;
+  }
+
+  .newsletter__form button {
+    padding: 16px 32px;
+  }
+}

@@ -11,6 +11,8 @@ interface filtersType {
 
 export const Catalog = () => {
   const [choosenFilters, setChoosenFilters] = useState<string[]>([]);
+  const [howMuchLoad, setHowMuchLoad] = useState(6);
+  const [filtersMobActive, setFiltersMobActive] = useState(true);
   const dispatch = useAppDispatch();
   const { items, isLoading, error } = useAppSelector(
     (state) => state.itemsReducer
@@ -28,11 +30,28 @@ export const Catalog = () => {
     Designer: ["Robert Smith", "Liam Gallagher", "Biggie Smalls", "Thom Yorke"],
   };
 
-  useEffect(() => {
-    dispatch(fetchItems());
-  }, [dispatch]);
+  const windowResize = () => {
+    if (window.innerWidth < 768) {
+      setFiltersMobActive(false);
+    }
+  };
 
-  // константа со значением категорий фильтров и самих фильтров в массив это записывать и при обновлении стейта посылать запрос на бэк с обновленным массивом
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setFiltersMobActive(false);
+    }
+    window.addEventListener("window_resize", windowResize);
+
+    return () => {
+      window.removeEventListener("window_resize", windowResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (howMuchLoad !== items.length) {
+      dispatch(fetchItems(howMuchLoad));
+    }
+  }, [dispatch, howMuchLoad, items]);
 
   const filterClick = (choosen_filter: string) => {
     const filterIndex = choosenFilters.findIndex(
@@ -67,7 +86,30 @@ export const Catalog = () => {
       <div className="container">
         <div className="catalog__content grid">
           <div className="catalog__column">
-            <div className="filters">
+            <button
+              className={`btn btn-theme_light catalog__btn ${
+                filtersMobActive ? "active" : ""
+              }`}
+              onClick={() => setFiltersMobActive(!filtersMobActive)}
+            >
+              Filters
+              <svg
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="16"
+                  height="16"
+                  transform="translate(0.5)"
+                  fill="white"
+                />
+                <path d="M12.5 6L8.5 11L4.5 6H12.5Z" fill="#2A254B" />
+              </svg>
+            </button>
+            <div className={`filters ${filtersMobActive ? "active" : ""}`}>
               <div className="filters__item">
                 {Object.keys(filters).map((filters_title) => {
                   return (
@@ -105,40 +147,25 @@ export const Catalog = () => {
             </div>
           </div>
           <div className="catalog__wrapper">
-            {isLoading && (
-              <div className="loading">
-                <div className="lds-roller">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </div>
-              </div>
-            )}
             {error && (
               <div className="error__block">
                 <div className="error__text">{error}</div>
                 <div
-                  onClick={() => dispatch(fetchItems())}
+                  onClick={() => dispatch(fetchItems(howMuchLoad))}
                   className="btn btn-theme_dark error__btn"
                 >
                   Try again
                 </div>
               </div>
             )}
-            {filteredItems.length === 0 && (
+            {filteredItems.length === 0 && !isLoading && (
               <div className="products__not-found">
-                <div className="">Products with this filters not found</div>
-                <div className="">Change the filters</div>
+                <div>Products with this filters not found</div>
+                <div>Change the filters</div>
               </div>
             )}
             <ul className="catalog__products">
               {Array.isArray(filteredItems) &&
-                !isLoading &&
                 filteredItems.map((item) => {
                   return (
                     <li key={item.id} className="catalog__item">
@@ -169,11 +196,33 @@ export const Catalog = () => {
                   );
                 })}
             </ul>
-            {!error && !isLoading && filteredItems.length > 0 && (
-              <div className="centered">
-                <button className="btn btn-theme_light">Load more</button>
+            {isLoading && (
+              <div className="loading">
+                <div className="lds-roller">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
               </div>
             )}
+            {!error &&
+              !isLoading &&
+              filteredItems.length > 0 &&
+              howMuchLoad === items.length && (
+                <div className="centered">
+                  <button
+                    className="btn btn-theme_light"
+                    onClick={() => setHowMuchLoad(howMuchLoad + 6)}
+                  >
+                    Load more
+                  </button>
+                </div>
+              )}
           </div>
         </div>
       </div>

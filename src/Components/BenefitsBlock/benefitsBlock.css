@@ -3,10 +3,6 @@
   padding-bottom: 80px;
 }
 
-.benefits__list {
-  column-gap: 80px !important;
-}
-
 .benefits__item {
   grid-column: 3 span;
 
@@ -46,4 +42,26 @@
   font-size: 16px;
   line-height: 150%;
   color: var(--dark-primary);
+}
+
+@media (max-width: 1024px) {
+  .benefits__list {
+    gap: 36px;
+  }
+  .benefits__item {
+    grid-column: 6 span;
+  }
+}
+
+@media (max-width: 767px) {
+  .benefits {
+    padding-top: 48px;
+    padding-bottom: 45px;
+  }
+  .benefits__list {
+    gap: 36px;
+  }
+  .benefits__item {
+    grid-column: 12 span;
+  }
 }
