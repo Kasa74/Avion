@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { Home } from "./Pages/Home";
 import { AboutPage } from "./Pages/AboutPage";
 import { ProductListingsPage } from "./Pages/ProductListingsPage";
@@ -8,7 +8,7 @@ import { ContactPage } from "./Pages/ContactPage";
 import { ProfilePage } from "./Pages/ProfilePage";
 
 export const App: React.FC = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<AboutPage />} />
@@ -18,5 +18,5 @@ export const App: React.FC = () => (
       <Route path="/item/:id" element={<ProductListingPage />} />
       <Route path="/cart" element={<CartPage />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Avion/static/css/main.6c17571e.css",
-    "main.js": "/Avion/static/js/main.77e5999c.js",
+    "main.js": "/Avion/static/js/main.831db0c4.js",
     "static/media/banner.jpg": "/Avion/static/media/banner.d0552ea136ba258148ff.jpg",
     "static/media/aboutHistory.jpg": "/Avion/static/media/aboutHistory.9fa76fa078b0d2147770.jpg",
     "static/media/aboutReverse.jpg": "/Avion/static/media/aboutReverse.3010a631f8917a10ccd5.jpg",
@@ -15,10 +15,10 @@
     "static/media/card_icon.svg": "/Avion/static/media/card_icon.29b5fe98a5ff0bb901c4.svg",
     "index.html": "/Avion/index.html",
     "main.6c17571e.css.map": "/Avion/static/css/main.6c17571e.css.map",
-    "main.77e5999c.js.map": "/Avion/static/js/main.77e5999c.js.map"
+    "main.831db0c4.js.map": "/Avion/static/js/main.831db0c4.js.map"
   },
   "entrypoints": [
     "static/css/main.6c17571e.css",
-    "static/js/main.77e5999c.js"
+    "static/js/main.831db0c4.js"
   ]
 }
